@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Product</title>
+  </head>
+  <body>
+    <h1>Edit Product</h1>
+    <form action="/products/<%=product._id%>?_method=PUT" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required value="<%=product.name%>">
+      <label for="price">Price</label>
+      <input type="number" name="price" id="price" required value="<%=product.price%>">
+      <label for="category">Select 
+        Category :
+      </label>
+      <select name="category" id="">
+        <% for(let category of categories) { %>
+            <option value="<%= category %>"<%= product.category === category ? 'selected': ''%>><%= category %></option>
+            <% } %>
+  </select>
+      <button type="submit">Edit Product</button>
+
+    </form>
+    <a href="/products/<%=product._id%>">Cancel</a>
+  </body>
+  </html>
